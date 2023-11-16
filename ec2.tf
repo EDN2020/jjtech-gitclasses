@@ -12,7 +12,7 @@ variable "prefix" {
 variable "sg_ports" {
   type        = list(number)
   description = "list of ports"
-  default     = [22, 443, 80, 9000, 8080]
+  default     = [22, 443, 80, 8080]
 }
 
 data "aws_ami" "app_ami" {
@@ -52,7 +52,7 @@ resource "aws_security_group" "jjtech_sg" {
 }
 resource "aws_instance" "web" {
   ami           = data.aws_ami.app_ami.id
-  instance_type = "t2.nano"
+  instance_type = "t2.medium"
   vpc_security_group_ids = [aws_security_group.jjtech_sg.id]
   user_data = <<EOF
 #!/bin/bash
