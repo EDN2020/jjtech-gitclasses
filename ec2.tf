@@ -12,7 +12,7 @@ variable "prefix" {
 variable "sg_ports" {
   type        = list(number)
   description = "list of ports"
-  default     = [22, 443, 80]
+  default     = [22, 443, 80, 9000]
 }
 
 data "aws_ami" "app_ami" {
