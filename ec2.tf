@@ -52,7 +52,7 @@ resource "aws_security_group" "jjtech_sg" {
 }
 resource "aws_instance" "web" {
   ami           = data.aws_ami.app_ami.id
-  instance_type = "t2.medium"
+  instance_type = "t2.nano"
   vpc_security_group_ids = [aws_security_group.jjtech_sg.id]
   user_data = <<EOF
 #!/bin/bash
